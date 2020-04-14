@@ -1,0 +1,13 @@
+.App {
+  font-family: 'Sweden Sans', sans-serif;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 150px 900px;
+}
+
+.TopicList {
+  list-style: none;
+}
+
+.ArticleList {
+  list-style: none;
+}
