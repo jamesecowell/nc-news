@@ -1,8 +1,13 @@
 .App {
-  font-family: 'Sweden Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 150px auto;
+}
+
+header {
+  margin-top: 16px;
+  padding-left: 40px;
 }
 
 .TopicList {
@@ -11,4 +16,9 @@
 
 .ArticleList {
   list-style: none;
+}
+
+.ArticleSorter {
+  margin-top: 16px;
+  padding-left: 40px;
 }
