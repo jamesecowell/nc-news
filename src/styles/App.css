@@ -1,7 +1,8 @@
 .App {
   font-family: 'Sweden Sans', sans-serif;
-  grid-template-columns: 300px auto;
-  grid-template-rows: 150px 900px;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  grid-template-rows: 150px auto;
 }
 
 .TopicList {
