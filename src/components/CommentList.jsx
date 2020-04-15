@@ -1,5 +1,6 @@
 import React from 'react';
 import * as api from '../utils/api';
+import CommentBody from './CommentBody';
 
 class CommentList extends React.Component {
   state = {
@@ -24,7 +25,11 @@ class CommentList extends React.Component {
         <h3>Comments:</h3>
         <ul>
           {comments.map((comment) => {
-            return <li key={comment.comment_id}>{comment.body}</li>;
+            return (
+              <li key={comment.comment_id}>
+                <CommentBody comment={comment} />
+              </li>
+            );
           })}
         </ul>
       </div>
