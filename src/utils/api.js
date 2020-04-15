@@ -19,3 +19,9 @@ export const getArticles = (query) => {
     });
   }
 };
+
+export const getSingleArticle = (article_id) => {
+  return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import TopicList from './components/TopicList';
 import ArticleList from './components/ArticleList';
 import ArticleSorter from './components/ArticleSorter';
+import ArticleBody from './components/ArticleBody';
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <Router>
           <ArticleList path="/" />
           <ArticleList path="/topics/:chosenTopic" />
+          <ArticleBody path="/topics/:chosenTopic/:article_id" />
         </Router>
       </div>
     );

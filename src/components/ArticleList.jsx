@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import * as api from '../utils/api';
 import ArticleHead from './ArticleHead';
 
@@ -30,7 +31,12 @@ class ArticleList extends React.Component {
         {articles.map((article) => {
           return (
             <li key={article.article_id}>
-              <ArticleHead article={article} />
+              <Link
+                to={`/topics/${article.topic}/${article.article_id}`}
+                article={article}
+              >
+                <ArticleHead article={article} />
+              </Link>
             </li>
           );
         })}
