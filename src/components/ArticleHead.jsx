@@ -1,27 +1,16 @@
 import React from 'react';
-import * as api from '../utils/api';
 
 class ArticleHead extends React.Component {
-  state = {
-    articles: [],
-    isLoading: true,
-  };
-
-  componentDidMount() {
-    api.getArticles().then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
-  }
-
   render() {
-    const { articles } = this.state;
+    const { article } = this.props;
 
     return (
       <div className="ArticleHead">
-        <h2>{articles[0].title}</h2>
-        <h3>{articles[0].author}</h3>
-        <p>{articles[0].date}</p>
-        <p>{articles[0].votes}</p>
+        <h2>{article.title}</h2>
+        <h3>{article.author}</h3>
+        <p>
+          {article.votes} votes - created: {article.created_at}
+        </p>
       </div>
     );
   }

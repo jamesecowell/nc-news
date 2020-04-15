@@ -1,5 +1,6 @@
 import React from 'react';
 import * as api from '../utils/api';
+import ArticleHead from './ArticleHead';
 
 class ArticleList extends React.Component {
   state = {
@@ -13,6 +14,14 @@ class ArticleList extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    const { chosenTopic } = this.props;
+
+    api.getArticles(chosenTopic).then((articles) => {
+      this.setState({ articles, isLoading: false });
+    });
+  }
+
   render() {
     const { articles } = this.state;
 
@@ -20,8 +29,8 @@ class ArticleList extends React.Component {
       <ul className="ArticleList">
         {articles.map((article) => {
           return (
-            <li key={article}>
-              <h3>{article.title}</h3>
+            <li key={article.article_id}>
+              <ArticleHead article={article} />
             </li>
           );
         })}

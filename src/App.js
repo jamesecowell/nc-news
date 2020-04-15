@@ -1,19 +1,24 @@
 import React from 'react';
+import { Router, Link } from '@reach/router';
 import './styles/App.css';
 import Header from './components/Header';
 import TopicList from './components/TopicList';
-// import ArticleList from './components/ArticleList';
+import ArticleList from './components/ArticleList';
 import ArticleSorter from './components/ArticleSorter';
-import ArticleHead from './components/ArticleHead';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Link to="/">
+          <Header />
+        </Link>
         <ArticleSorter />
         <TopicList />
-        <ArticleHead />
+        <Router>
+          <ArticleList path="/" />
+          <ArticleList path="/topics/:chosenTopic" />
+        </Router>
       </div>
     );
   }

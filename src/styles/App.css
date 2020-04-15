@@ -1,5 +1,5 @@
 .App {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Sweden Sans', sans-serif;
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 150px auto;
@@ -10,11 +10,7 @@ header {
   padding-left: 40px;
 }
 
-.TopicList {
-  list-style: none;
-}
-
-.ArticleList {
+ul {
   list-style: none;
 }
 
