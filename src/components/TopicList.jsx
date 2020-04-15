@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import * as api from '../utils/api';
+import Loader from './Loader';
 
 class TopicList extends React.Component {
   state = {
@@ -15,8 +16,8 @@ class TopicList extends React.Component {
   }
 
   render() {
-    const { topics } = this.state;
-
+    const { topics, isLoading } = this.state;
+    if (isLoading) return <Loader />;
     return (
       <div className="TopicList">
         <h2>Topics:</h2>

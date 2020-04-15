@@ -9,7 +9,8 @@ class ArticleHead extends React.Component {
         <h2>{article.title}</h2>
         <h3>{article.author}</h3>
         <p>
-          {article.votes} votes - created: {article.created_at}
+          {article.votes} votes - created: {article.created_at} -{' '}
+          {article.comment_count} comments
         </p>
       </div>
     );

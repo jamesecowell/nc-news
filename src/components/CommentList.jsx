@@ -1,6 +1,7 @@
 import React from 'react';
 import * as api from '../utils/api';
 import CommentBody from './CommentBody';
+import Loader from './Loader';
 
 class CommentList extends React.Component {
   state = {
@@ -18,8 +19,8 @@ class CommentList extends React.Component {
   }
 
   render() {
-    const { comments } = this.state;
-
+    const { comments, isLoading } = this.state;
+    if (isLoading) return <Loader />;
     return (
       <div className="CommentList">
         <h3>Comments:</h3>

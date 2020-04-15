@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentVoter from './CommentVoter';
 
 class CommentBody extends React.Component {
   state = {
@@ -15,6 +16,7 @@ class CommentBody extends React.Component {
         <p>{comment.created_at}</p>
         <h3>Votes: {comment.votes}</h3>
         <p>{comment.body}</p>
+        <CommentVoter comment_id={comment.comment_id} />
       </div>
     );
   }

@@ -2,6 +2,8 @@ import React from 'react';
 import * as api from '../utils/api';
 import ArticleHead from './ArticleHead';
 import CommentList from './CommentList';
+import Loader from './Loader';
+import CommentAdder from './CommentAdder';
 
 class ArticleBody extends React.Component {
   state = {
@@ -17,13 +19,14 @@ class ArticleBody extends React.Component {
   }
 
   render() {
-    const { article } = this.state;
+    const { article, isLoading } = this.state;
     const { article_id } = this.props;
-
+    if (isLoading) return <Loader />;
     return (
       <div className="ArticleBody">
         <ArticleHead article={article} />
         <p>{article.body}</p>
+        <CommentAdder />
         <CommentList article_id={article_id} />
       </div>
     );
