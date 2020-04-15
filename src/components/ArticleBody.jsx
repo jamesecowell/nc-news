@@ -1,6 +1,7 @@
 import React from 'react';
 import * as api from '../utils/api';
 import ArticleHead from './ArticleHead';
+import CommentList from './CommentList';
 
 class ArticleBody extends React.Component {
   state = {
@@ -17,11 +18,13 @@ class ArticleBody extends React.Component {
 
   render() {
     const { article } = this.state;
+    const { article_id } = this.props;
 
     return (
       <div className="ArticleBody">
         <ArticleHead article={article} />
         <p>{article.body}</p>
+        <CommentList article_id={article_id} />
       </div>
     );
   }
