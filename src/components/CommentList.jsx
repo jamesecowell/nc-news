@@ -2,6 +2,7 @@ import React from 'react';
 import * as api from '../utils/api';
 import CommentBody from './CommentBody';
 import Loader from './Loader';
+import CommentAdder from './CommentAdder';
 
 class CommentList extends React.Component {
   state = {
@@ -20,9 +21,15 @@ class CommentList extends React.Component {
 
   render() {
     const { comments, isLoading } = this.state;
+    const { article_id, username } = this.props;
     if (isLoading) return <Loader />;
     return (
       <div className="CommentList">
+        <CommentAdder
+          article_id={article_id}
+          username={username}
+          addComment={this.addComment}
+        />
         <h3>Comments:</h3>
         <ul>
           {comments.map((comment) => {
@@ -36,6 +43,12 @@ class CommentList extends React.Component {
       </div>
     );
   }
+
+  addComment = (newComment) => {
+    this.setState((state) => {
+      return { comments: [newComment, ...state.comments] };
+    });
+  };
 }
 
 export default CommentList;

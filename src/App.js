@@ -13,17 +13,22 @@ class App extends React.Component {
   };
 
   render() {
+    const username = this.state.userInfo;
+
     return (
       <div className="App">
         <Link to="/">
           <Header />
         </Link>
-        <UserBar username={this.state.userInfo} />
+        <UserBar username={username} />
         <TopicList />
         <Router>
           <ArticleList path="/" />
           <ArticleList path="/topics/:chosenTopic" />
-          <ArticleBody path="/topics/:chosenTopic/:article_id" />
+          <ArticleBody
+            path="/topics/:chosenTopic/:article_id"
+            username={username}
+          />
         </Router>
       </div>
     );
