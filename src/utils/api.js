@@ -49,3 +49,11 @@ export const commentVote = (comment_id, inc_votes) => {
       return data.comment;
     });
 };
+
+export const articleVote = (article_id, inc_votes) => {
+  return axios
+    .patch(`${baseURL}/articles/${article_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.article;
+    });
+};
