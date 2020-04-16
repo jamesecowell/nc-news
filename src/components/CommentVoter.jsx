@@ -4,8 +4,7 @@ import * as api from '../utils/api';
 class CommentVoter extends React.Component {
   state = {
     isLoading: true,
-    upvoteCount: 0,
-    downvoteCount: 0,
+    voteCount: 0,
   };
 
   componentDidMount() {
@@ -14,21 +13,17 @@ class CommentVoter extends React.Component {
 
   render() {
     return (
-      <div className="CommentVoter">
-        <button onClick={this.handleUpvote}>Up</button>
-        <button>Down</button>
-      </div>
+      <section className="CommentVoter">
+        <button onClick={() => this.handleVote(1)}>Up</button>
+        <button onClick={() => this.handleVote(-1)}>Down</button>
+      </section>
     );
   }
 
-  handleUpvote = () => {
+  handleVote = (inc_vote) => {
     const { comment_id } = this.props;
-    api.commentVote(comment_id);
-    this.setState((currentState) => {
-      return {
-        upvoteCount: currentState.upvoteCount + 1,
-      };
-    });
+    api.commentVote(comment_id, inc_vote);
+    this.props.displayVote(inc_vote);
   };
 }
 

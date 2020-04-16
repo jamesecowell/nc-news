@@ -42,9 +42,10 @@ export const getArticleComments = (article_id) => {
     });
 };
 
-export const commentVote = (comment_id) => {
-  console.log('got to utils');
-  return axios.patch(`${baseURL}/comments/${comment_id}`).then(({ data }) => {
-    return data.comment;
-  });
+export const commentVote = (comment_id, inc_votes) => {
+  return axios
+    .patch(`${baseURL}/comments/${comment_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.comment;
+    });
 };
