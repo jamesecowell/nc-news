@@ -39,4 +39,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Hosted version
+
+You can find the hosted version of the app [here](https://jamesecowell-ncnews.netlify.app).
+
+## Back-end links
+
+This app uses a bespoke api, which you can find [here](https://jamesecowell-nc-news.herokuapp.com/api)
+
+You can find the repository for the back-end project [here](https://github.com/jamesecowell/be-nc-news)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
