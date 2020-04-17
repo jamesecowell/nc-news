@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentVoter from './CommentVoter';
+import CommentDeleter from './CommentDeleter';
 
 class CommentBody extends React.Component {
   state = {
@@ -9,8 +10,18 @@ class CommentBody extends React.Component {
   };
 
   render() {
-    const { comment } = this.props;
+    const { comment, username, removeComment } = this.props;
     const { optimisticVotes } = this.state;
+
+    let deleteButton;
+    if (comment.author === username) {
+      deleteButton = (
+        <CommentDeleter
+          comment_id={comment.comment_id}
+          removeComment={removeComment}
+        />
+      );
+    }
 
     return (
       <div className="CommentBody">
@@ -18,6 +29,7 @@ class CommentBody extends React.Component {
         <p>{comment.created_at}</p>
         <h3>Votes: {comment.votes + optimisticVotes}</h3>
         <p>{comment.body}</p>
+        {deleteButton}
         <CommentVoter
           comment_id={comment.comment_id}
           displayVote={this.displayVote}

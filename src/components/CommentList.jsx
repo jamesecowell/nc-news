@@ -12,7 +12,6 @@ class CommentList extends React.Component {
 
   componentDidMount() {
     const { article_id } = this.props;
-    console.log(article_id);
 
     api.getArticleComments(article_id).then((comments) => {
       this.setState({ comments, isLoading: false });
@@ -35,7 +34,11 @@ class CommentList extends React.Component {
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
-                <CommentBody comment={comment} />
+                <CommentBody
+                  comment={comment}
+                  username={username}
+                  removeComment={this.removeComment}
+                />
               </li>
             );
           })}
@@ -48,6 +51,10 @@ class CommentList extends React.Component {
     this.setState((state) => {
       return { comments: [newComment, ...state.comments] };
     });
+  };
+
+  removeComment = () => {
+    this.setState(this.state);
   };
 }
 

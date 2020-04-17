@@ -21,7 +21,7 @@ class ArticleList extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const { chosenTopic } = this.props;
     const { sortBy } = this.state;
-    if (prevProps.chosenTopic !== chosenTopic) {
+    if (prevProps.chosenTopic !== chosenTopic || prevState.sortBy !== sortBy) {
       this.fetchArticles(chosenTopic, sortBy);
     }
   }

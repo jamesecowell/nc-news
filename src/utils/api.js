@@ -8,24 +8,17 @@ export const getTopics = () => {
   });
 };
 
-export const getArticles = (query, sortBy) => {
-  if (query !== undefined) {
-    console.log(query);
-    return axios.get(`${baseURL}/articles?topic=${query}`).then(({ data }) => {
+export const getArticles = (topic, sortBy) => {
+  return axios
+    .get(`${baseURL}/articles`, {
+      params: {
+        topic: topic,
+        sort_by: sortBy,
+      },
+    })
+    .then(({ data }) => {
       return data.articles;
     });
-  } else if (sortBy !== undefined) {
-    console.log(sortBy);
-    return axios
-      .get(`${baseURL}/articles?sort_by=${sortBy}`)
-      .then(({ data }) => {
-        return data.articles;
-      });
-  } else {
-    return axios.get(`${baseURL}/articles`).then(({ data }) => {
-      return data.articles;
-    });
-  }
 };
 
 export const getSingleArticle = (article_id) => {
@@ -67,4 +60,8 @@ export const postComment = (article_id, username, body) => {
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`);
 };

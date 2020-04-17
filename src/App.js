@@ -6,6 +6,7 @@ import TopicList from './components/TopicList';
 import ArticleList from './components/ArticleList';
 import ArticleBody from './components/ArticleBody';
 import UserBar from './components/UserBar';
+import ErrorPage from './components/ErrorPage';
 
 class App extends React.Component {
   state = {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <UserBar username={username} />
         <TopicList />
         <Router>
+          <ErrorPage default />
           <ArticleList path="/" />
           <ArticleList path="/topics/:chosenTopic" />
           <ArticleBody
