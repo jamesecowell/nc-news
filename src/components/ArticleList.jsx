@@ -4,12 +4,14 @@ import * as api from '../utils/api';
 import ArticleHead from './ArticleHead';
 import ArticleSorter from './ArticleSorter';
 import Loader from './Loader';
+import ErrorPage from './ErrorPage';
 
 class ArticleList extends React.Component {
   state = {
     articles: [],
     sortBy: '',
     isLoading: true,
+    hasError: false,
   };
 
   componentDidMount() {
@@ -28,13 +30,16 @@ class ArticleList extends React.Component {
 
   fetchArticles = (chosenTopic, sortBy) => {
     api.getArticles(chosenTopic, sortBy).then((articles) => {
-      this.setState({ articles, isLoading: false });
+      this.setState({ articles, isLoading: false }).catch((err) => {
+        this.setState({ hasError: true, isLoading: false });
+      });
     });
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, hasError } = this.state;
     if (isLoading) return <Loader />;
+    if (hasError) return <ErrorPage />;
     return (
       <div className="ArticleList">
         <ArticleSorter sortArticles={this.sortArticles} />

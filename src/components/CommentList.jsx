@@ -11,14 +11,30 @@ class CommentList extends React.Component {
   };
 
   componentDidMount() {
+    console.log('mount');
     const { article_id } = this.props;
 
+    this.fetchArticleComments(article_id);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('update');
+    const { article_id } = this.props;
+    const { comments } = this.state;
+
+    if (prevState.comments !== comments) {
+      this.fetchArticleComments(article_id);
+    }
+  }
+
+  fetchArticleComments = (article_id) => {
     api.getArticleComments(article_id).then((comments) => {
       this.setState({ comments, isLoading: false });
     });
-  }
+  };
 
   render() {
+    console.log('render');
     const { comments, isLoading } = this.state;
     const { article_id, username } = this.props;
     if (isLoading) return <Loader />;
@@ -54,6 +70,7 @@ class CommentList extends React.Component {
   };
 
   removeComment = () => {
+    console.log('removeComment');
     this.setState(this.state);
   };
 }

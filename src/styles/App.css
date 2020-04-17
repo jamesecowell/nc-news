@@ -23,6 +23,11 @@ ul {
   list-style: none;
 }
 
+.Loader {
+  margin-top: 16px;
+  padding-left: 40px;
+}
+
 .UserBar {
   margin-top: 16px;
   padding-left: 40px;
@@ -39,6 +44,11 @@ ul {
 }
 
 .TopicList {
+  margin-top: 16px;
+  padding-left: 40px;
+}
+
+.ErrorPage {
   margin-top: 16px;
   padding-left: 40px;
 }
