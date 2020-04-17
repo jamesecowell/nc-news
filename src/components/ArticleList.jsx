@@ -11,7 +11,7 @@ class ArticleList extends React.Component {
     articles: [],
     sortBy: '',
     isLoading: true,
-    hasError: false,
+    articleError: null,
   };
 
   componentDidMount() {
@@ -35,14 +35,22 @@ class ArticleList extends React.Component {
         this.setState({ articles, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ hasError: true, isLoading: false });
+        const { status, data } = err.response;
+        this.setState({
+          articleError: {
+            status: status,
+            msg: data.msg,
+          },
+          isLoading: false,
+        });
       });
   };
 
   render() {
-    const { articles, isLoading, hasError } = this.state;
+    const { articles, isLoading, articleError } = this.state;
     if (isLoading) return <Loader />;
-    if (hasError) return <ErrorPage />;
+    if (articleError)
+      return <ErrorPage status={articleError.status} msg={articleError.msg} />;
     return (
       <div className="ArticleList">
         <ArticleSorter sortArticles={this.sortArticles} />

@@ -12,7 +12,7 @@ class CommentAdder extends React.Component {
         <input
           type="text"
           id="comment"
-          defaultValue="Add a comment..."
+          placeholder="Add a comment..."
           onChange={(e) => this.handleChange(e.target.value, 'comment')}
         ></input>
         <button>Post</button>
@@ -31,6 +31,7 @@ class CommentAdder extends React.Component {
     api.postComment(article_id, username, comment).then((newComment) => {
       this.props.addComment(newComment);
     });
+    this.setState({ comment: '' });
   };
 }
 

@@ -9,7 +9,7 @@ class ArticleBody extends React.Component {
   state = {
     article: {},
     isLoading: true,
-    hasError: false,
+    articleError: null,
   };
 
   componentDidMount() {
@@ -24,15 +24,20 @@ class ArticleBody extends React.Component {
         this.setState({ article, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ hasError: true, isLoading: false });
+        const { status, data } = err.response;
+        this.setState({
+          articleError: { status: status, msg: data.msg },
+          isLoading: false,
+        });
       });
   };
 
   render() {
-    const { article, isLoading, hasError } = this.state;
+    const { article, isLoading, articleError } = this.state;
     const { article_id, username } = this.props;
     if (isLoading) return <Loader />;
-    if (hasError) return <ErrorPage />;
+    if (articleError)
+      return <ErrorPage status={articleError.status} msg={articleError.msg} />;
     return (
       <div className="ArticleBody">
         <ArticleHead article={article} />
