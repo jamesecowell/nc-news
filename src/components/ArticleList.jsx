@@ -29,11 +29,14 @@ class ArticleList extends React.Component {
   }
 
   fetchArticles = (chosenTopic, sortBy) => {
-    api.getArticles(chosenTopic, sortBy).then((articles) => {
-      this.setState({ articles, isLoading: false }).catch((err) => {
+    api
+      .getArticles(chosenTopic, sortBy)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
         this.setState({ hasError: true, isLoading: false });
       });
-    });
   };
 
   render() {

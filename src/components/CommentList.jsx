@@ -17,16 +17,6 @@ class CommentList extends React.Component {
     this.fetchArticleComments(article_id);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('update');
-    const { article_id } = this.props;
-    const { comments } = this.state;
-
-    if (prevState.comments !== comments) {
-      this.fetchArticleComments(article_id);
-    }
-  }
-
   fetchArticleComments = (article_id) => {
     api.getArticleComments(article_id).then((comments) => {
       this.setState({ comments, isLoading: false });
@@ -69,9 +59,15 @@ class CommentList extends React.Component {
     });
   };
 
-  removeComment = () => {
-    console.log('removeComment');
-    this.setState(this.state);
+  removeComment = (comment_id) => {
+    console.log('remove comment');
+    this.setState((currentState) => {
+      return {
+        comments: currentState.comments.filter((comment) => {
+          return comment.comment_id !== comment_id;
+        }),
+      };
+    });
   };
 }
 
