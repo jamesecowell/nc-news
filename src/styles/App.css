@@ -33,6 +33,8 @@ header {
 .TopicList {
   grid-area: TopicList;
   justify-self: start;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
 }
 
 .content {
