@@ -57,7 +57,7 @@ class ArticleList extends React.Component {
         <ul>
           {articles.map((article) => {
             return (
-              <li key={article.article_id}>
+              <li key={article.article_id} className="articleList">
                 <Link
                   to={`/topics/${article.topic}/${article.article_id}`}
                   article={article}
