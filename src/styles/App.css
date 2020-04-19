@@ -42,15 +42,15 @@ header {
   justify-self: center;
 }
 
-@media screen and (min-width: 736px) {
+@media screen and (min-width: 640px) {
   .App {
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-template-rows: auto 50px auto;
     grid-template-areas:
-      'UserBar UserBar'
-      'header content'
-      'TopicList content';
+      'header UserBar'
+      'TopicList content'
+      '. content';
   }
 }
 
