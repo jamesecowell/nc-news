@@ -39,7 +39,7 @@ class ArticleBody extends React.Component {
     if (articleError)
       return <ErrorPage status={articleError.status} msg={articleError.msg} />;
     return (
-      <div className="ArticleBody">
+      <div className="content">
         <ArticleHead article={article} />
         <p>{article.body}</p>
         <CommentList article_id={article_id} username={username} />

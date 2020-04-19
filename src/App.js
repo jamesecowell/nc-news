@@ -18,11 +18,10 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <UserBar username={username} />
         <Link to="/">
           <Header />
         </Link>
-        <UserBar username={username} />
-        <TopicList />
         <Router>
           <ErrorPage default />
           <ArticleList path="/" />
@@ -32,6 +31,7 @@ class App extends React.Component {
             username={username}
           />
         </Router>
+        <TopicList />
       </div>
     );
   }

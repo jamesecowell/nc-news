@@ -52,7 +52,7 @@ class ArticleList extends React.Component {
     if (articleError)
       return <ErrorPage status={articleError.status} msg={articleError.msg} />;
     return (
-      <div className="ArticleList">
+      <div className="content">
         <ArticleSorter sortArticles={this.sortArticles} />
         <ul>
           {articles.map((article) => {

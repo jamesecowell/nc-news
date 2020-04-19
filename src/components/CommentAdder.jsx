@@ -1,5 +1,23 @@
 import React from 'react';
 import * as api from '../utils/api';
+import styled, { css } from 'styled-components';
+
+const Button = styled.button`
+  font-family: 'Sweden Sans', sans-serif;
+  background: transparent;
+  border-radius: 3px;
+  border: 20x solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+
+  ${(props) =>
+    props.primary &&
+    css`
+      background: #e34234;
+      color: white;
+    `}
+`;
 
 class CommentAdder extends React.Component {
   state = {
@@ -15,7 +33,7 @@ class CommentAdder extends React.Component {
           placeholder="Add a comment..."
           onChange={(e) => this.handleChange(e.target.value, 'comment')}
         ></input>
-        <button>Post</button>
+        <Button primary>Post</Button>
       </form>
     );
   }
