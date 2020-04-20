@@ -96,6 +96,11 @@ a:hover {
   background: #f7e1df;
 }
 
+.ArticleSorter {
+  display: flex;
+  justify-content: space-around;
+}
+
 .commentList:nth-child(odd) {
   background: #f7e1df;
 }

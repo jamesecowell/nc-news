@@ -19,35 +19,26 @@ const Button = styled.button`
 `;
 
 class ArticleSorter extends React.Component {
-  state = {
-    sortBy: 'created_at',
-  };
-
   render() {
     return (
-      <form className="ArticleSorter" onSubmit={this.handleSubmit}>
-        <label htmlFor="sorter">
-          Sort articles by:
-          <select className="sorter" id="sorter" onChange={this.handleChange}>
-            <option value="created_at">Date</option>
-            <option value="votes">Votes</option>
-            <option value="comment_count">Number of comments</option>
-          </select>
-        </label>
-        <Button primary>Go!</Button>
-      </form>
+      <div className="ArticleSorter">
+        Sort by:
+        <Button primary value="created_at" onClick={this.handleClick}>
+          Date
+        </Button>
+        <Button primary value="votes" onClick={this.handleClick}>
+          Votes
+        </Button>
+        <Button primary value="comment_count" onClick={this.handleClick}>
+          Number of comments
+        </Button>
+      </div>
     );
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
     const { value } = event.target;
-    this.setState({ sortBy: value });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { sortBy } = this.state;
-    this.props.sortArticles(sortBy);
+    this.props.sortArticles(value);
   };
 }
 
