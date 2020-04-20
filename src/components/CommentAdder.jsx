@@ -35,7 +35,7 @@ class CommentAdder extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="commentAdder" onSubmit={this.handleSubmit}>
         <Input
           type="text"
           id="comment"

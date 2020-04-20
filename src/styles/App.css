@@ -101,6 +101,11 @@ a:hover {
   justify-content: space-around;
 }
 
+.commentAdder {
+  display: flex;
+  justify-content: space-around;
+}
+
 .commentList:nth-child(odd) {
   background: #f7e1df;
 }
@@ -131,14 +136,9 @@ a:hover {
 
 @media screen and (max-width: 635px) {
   .App {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-      'UserBar'
-      'header'
-      'TopicList'
-      'content';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     font-family: 'Lato', sans-serif;
   }
 

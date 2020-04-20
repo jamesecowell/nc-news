@@ -22,6 +22,7 @@ class App extends React.Component {
         <Link to="/">
           <Header />
         </Link>
+        <TopicList />
         <Router>
           <ErrorPage default />
           <ArticleList path="/" />
@@ -31,7 +32,6 @@ class App extends React.Component {
             username={username}
           />
         </Router>
-        <TopicList />
       </div>
     );
   }
