@@ -21,12 +21,14 @@
   justify-self: end;
   font-size: smaller;
   font-weight: lighter;
+  z-index: 200;
 }
 
 header {
   grid-area: header;
   justify-self: center;
   font-family: 'Oswald', sans-serif;
+  z-index: 200;
 }
 
 .TopicList {
@@ -47,6 +49,7 @@ header {
   height: 2px;
   background-color: black;
   margin: 5px;
+  transition: 0.5s;
 }
 
 .topicLinks {
@@ -127,10 +130,6 @@ a:hover {
 }
 
 @media screen and (max-width: 635px) {
-  body {
-    overflow-x: hidden;
-  }
-
   .App {
     display: grid;
     grid-template-columns: 1fr;
@@ -143,34 +142,63 @@ a:hover {
     font-family: 'Lato', sans-serif;
   }
 
+  .TopicList {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .topicLinks {
     position: absolute;
     right: 0px;
     height: 50vh;
     top: 20vh;
-    background-color: #e34234;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
+    transform: translateY(-120%);
+    z-index: 100;
+    transition: 0.5s ease-in;
+  }
+
+  .topicLinks.open {
+    position: absolute;
+    right: 0px;
+    height: 50vh;
+    top: 17vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateY(0);
+    background-color: #e34234;
+    transition: 0.5s ease-in;
   }
 
   .topicLinks a {
-    color: #f7e1df;
+    color: white;
   }
 
-  .topicLinks li {
-    opacity: 0;
+  .topicLinksOpen a {
+    color: white;
   }
 
   .burger {
     display: block;
     cursor: pointer;
   }
-}
 
-.nav-active {
-  transform: translateX(0%);
+  .line1.open {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .line2.open {
+    opacity: 0;
+  }
+
+  .line3.open {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
 }
