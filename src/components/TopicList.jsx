@@ -19,9 +19,14 @@ class TopicList extends React.Component {
     const { topics, isLoading } = this.state;
     if (isLoading) return <Loader />;
     return (
-      <div className="TopicList">
+      <nav className="TopicList">
         <h2>Topics:</h2>
-        <ul>
+        <div className="burger">
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+        <ul className="topicLinks">
           {topics.map((topic) => {
             return (
               <li key={topic.slug}>
@@ -32,7 +37,7 @@ class TopicList extends React.Component {
             );
           })}
         </ul>
-      </div>
+      </nav>
     );
   }
 }

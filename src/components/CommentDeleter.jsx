@@ -6,7 +6,7 @@ const Button = styled.button`
   font-family: 'Lato', sans-serif;
   background: transparent;
   border-radius: 3px;
-  border: 2px solid #e34234;
+  border: 1px solid #e34234;
   color: #e34234;
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -21,11 +21,7 @@ const Button = styled.button`
 
 class CommentDeleter extends React.Component {
   render() {
-    return (
-      <Button primary onClick={this.deleteComment}>
-        Delete comment
-      </Button>
-    );
+    return <Button onClick={this.deleteComment}>Delete comment</Button>;
   }
 
   deleteComment = (event) => {

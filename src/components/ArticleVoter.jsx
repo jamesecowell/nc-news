@@ -27,10 +27,14 @@ class ArticleVoter extends React.Component {
   render() {
     return (
       <section className="ArticleVoter">
-        <Button primary onClick={() => this.handleVote(1)}>
+        <Button primary className="upVote" onClick={() => this.handleVote(1)}>
           Up
         </Button>
-        <Button primary onClick={() => this.handleVote(-1)}>
+        <Button
+          primary
+          className="downVote"
+          onClick={() => this.handleVote(-1)}
+        >
           Down
         </Button>
       </section>

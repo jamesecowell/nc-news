@@ -13,9 +13,9 @@ class ArticleHead extends React.Component {
 
     return (
       <div className="ArticleHead">
-        <h2>{article.title}</h2>
-        <h3>{article.author}</h3>
-        <p>
+        <h2 className="articleTitle">{article.title}</h2>
+        <h3 className="articleAuthor">{article.author}</h3>
+        <p className="articleInfo">
           {article.votes + optimisticVotes} votes - created:
           <Moment fromNow>{article.created_at}</Moment>
         </p>
