@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentVoter from './CommentVoter';
+import Voter from './Voter';
 import CommentDeleter from './CommentDeleter';
 import Moment from 'react-moment';
 
@@ -31,8 +31,9 @@ class CommentBody extends React.Component {
         <h3>Votes: {comment.votes + optimisticVotes}</h3>
         <p>{comment.body}</p>
         {deleteButton}
-        <CommentVoter
-          comment_id={comment.comment_id}
+        <Voter
+          id={comment.comment_id}
+          type="comment"
           displayVote={this.displayVote}
         />
       </div>

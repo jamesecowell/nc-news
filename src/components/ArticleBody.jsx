@@ -4,7 +4,7 @@ import ArticleHead from './ArticleHead';
 import CommentList from './CommentList';
 import Loader from './Loader';
 import ErrorPage from './ErrorPage';
-import ArticleVoter from './ArticleVoter';
+import Voter from './Voter';
 
 class ArticleBody extends React.Component {
   state = {
@@ -46,7 +46,11 @@ class ArticleBody extends React.Component {
           article={article}
           votes={article.votes + optimisticVotes}
         />
-        <ArticleVoter displayVote={this.displayVote} votes={article.votes} />
+        <Voter
+          displayVote={this.displayVote}
+          votes={article.votes}
+          type="article"
+        />
         <p>{article.body}</p>
         <CommentList article_id={article_id} username={username} />
       </div>
