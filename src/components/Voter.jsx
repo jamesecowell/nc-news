@@ -37,7 +37,7 @@ class ArticleVoter extends React.Component {
       </Button>
     );
 
-    if (voteCount > 1) {
+    if (voteCount > 0) {
       upVoteButton = <Button>Up</Button>;
     }
     if (voteCount < 0) {
@@ -56,7 +56,7 @@ class ArticleVoter extends React.Component {
     const { voteCount } = this.state;
     const { article_id, type } = this.props;
 
-    if (voteCount >= -2 && voteCount <= 2) {
+    if (voteCount >= -1 && voteCount <= 1) {
       this.setState((currentState) => {
         return (currentState.voteCount += inc_vote);
       });
