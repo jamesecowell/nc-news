@@ -96,6 +96,10 @@ a:hover {
   background: #f7e1df;
 }
 
+.commentList:nth-child(odd) {
+  background: #f7e1df;
+}
+
 .articleTitle {
   grid-area: articleTitle;
 }

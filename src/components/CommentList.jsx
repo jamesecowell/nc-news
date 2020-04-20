@@ -37,7 +37,7 @@ class CommentList extends React.Component {
         <ul>
           {comments.map((comment) => {
             return (
-              <li key={comment.comment_id}>
+              <li key={comment.comment_id} className="commentList">
                 <CommentBody
                   comment={comment}
                   username={username}
