@@ -10,7 +10,6 @@ const Button = styled.button`
   color: #e34234;
   margin: 1em;
   padding: 0.25em 1em;
-
   ${(props) =>
     props.primary &&
     css`

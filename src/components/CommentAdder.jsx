@@ -41,6 +41,7 @@ class CommentAdder extends React.Component {
           id="comment"
           placeholder="Add a comment..."
           onChange={(e) => this.handleChange(e.target.value, 'comment')}
+          default=""
         ></Input>
         <Button primary>Post</Button>
       </form>

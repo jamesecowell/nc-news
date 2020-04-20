@@ -25,9 +25,9 @@ class CommentDeleter extends React.Component {
   }
 
   deleteComment = (event) => {
-    console.log('button clicked');
     const { comment_id, removeComment } = this.props;
-    api.deleteComment(comment_id).then(removeComment(comment_id));
+    api.deleteComment(comment_id);
+    removeComment(comment_id);
   };
 }
 

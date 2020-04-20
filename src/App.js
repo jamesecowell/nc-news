@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <UserBar username={username} />
-        <Link to="/">
+        <Link to="/" className="head-link">
           <Header />
         </Link>
         <Router>

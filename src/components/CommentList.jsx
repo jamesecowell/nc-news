@@ -11,7 +11,6 @@ class CommentList extends React.Component {
   };
 
   componentDidMount() {
-    console.log('mount');
     const { article_id } = this.props;
 
     this.fetchArticleComments(article_id);
@@ -24,7 +23,6 @@ class CommentList extends React.Component {
   };
 
   render() {
-    console.log('render');
     const { comments, isLoading } = this.state;
     const { article_id, username } = this.props;
     if (isLoading) return <Loader />;
@@ -60,7 +58,6 @@ class CommentList extends React.Component {
   };
 
   removeComment = (comment_id) => {
-    console.log('remove comment');
     this.setState((currentState) => {
       return {
         comments: currentState.comments.filter((comment) => {

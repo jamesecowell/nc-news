@@ -4,12 +4,14 @@ import ArticleHead from './ArticleHead';
 import CommentList from './CommentList';
 import Loader from './Loader';
 import ErrorPage from './ErrorPage';
+import ArticleVoter from './ArticleVoter';
 
 class ArticleBody extends React.Component {
   state = {
     article: {},
     isLoading: true,
     articleError: null,
+    optimisticVotes: 0,
   };
 
   componentDidMount() {
@@ -33,19 +35,29 @@ class ArticleBody extends React.Component {
   };
 
   render() {
-    const { article, isLoading, articleError } = this.state;
+    const { article, isLoading, articleError, optimisticVotes } = this.state;
     const { article_id, username } = this.props;
     if (isLoading) return <Loader />;
     if (articleError)
       return <ErrorPage status={articleError.status} msg={articleError.msg} />;
     return (
       <div className="content">
-        <ArticleHead article={article} />
+        <ArticleHead
+          article={article}
+          votes={article.votes + optimisticVotes}
+        />
+        <ArticleVoter displayVote={this.displayVote} votes={article.votes} />
         <p>{article.body}</p>
         <CommentList article_id={article_id} username={username} />
       </div>
     );
   }
+
+  displayVote = (inc_vote) => {
+    this.setState((currentState) => {
+      return { optimisticVotes: currentState.optimisticVotes + inc_vote };
+    });
+  };
 }
 
 export default ArticleBody;

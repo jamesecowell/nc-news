@@ -62,7 +62,7 @@ class ArticleList extends React.Component {
                   to={`/topics/${article.topic}/${article.article_id}`}
                   article={article}
                 >
-                  <ArticleHead article={article} />
+                  <ArticleHead article={article} votes={article.votes} />
                 </Link>
               </li>
             );
