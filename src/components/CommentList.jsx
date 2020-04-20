@@ -35,7 +35,7 @@ class CommentList extends React.Component {
           username={username}
           addComment={this.addComment}
         />
-        <h3>Comments:</h3>
+        <h2>Comments:</h2>
         <ul>
           {comments.map((comment) => {
             return (

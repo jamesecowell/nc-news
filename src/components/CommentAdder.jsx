@@ -9,7 +9,7 @@ const Button = styled.button`
   border: 20x solid palevioletred;
   color: palevioletred;
   margin: 0 1em;
-  padding: 0.25em 1em;
+  padding: 0.75em 1em;
 
   ${(props) =>
     props.primary &&
@@ -17,6 +17,15 @@ const Button = styled.button`
       background: #e34234;
       color: white;
     `}
+`;
+
+const Input = styled.input`
+  width: 80%;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-colour: #e34234;
 `;
 
 class CommentAdder extends React.Component {
@@ -27,12 +36,12 @@ class CommentAdder extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
+        <Input
           type="text"
           id="comment"
           placeholder="Add a comment..."
           onChange={(e) => this.handleChange(e.target.value, 'comment')}
-        ></input>
+        ></Input>
         <Button primary>Post</Button>
       </form>
     );

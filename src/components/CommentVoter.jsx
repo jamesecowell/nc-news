@@ -8,7 +8,7 @@ const Button = styled.button`
   border-radius: 3px;
   border: 2px solid #e34234;
   color: #e34234;
-  margin: 0 1em;
+  margin: 1em;
   padding: 0.25em 1em;
 
   ${(props) =>

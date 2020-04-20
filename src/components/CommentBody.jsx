@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentVoter from './CommentVoter';
 import CommentDeleter from './CommentDeleter';
+import Moment from 'react-moment';
 
 class CommentBody extends React.Component {
   state = {
@@ -26,7 +27,7 @@ class CommentBody extends React.Component {
     return (
       <div className="CommentBody">
         <h3>{comment.author}</h3>
-        <p>{comment.created_at}</p>
+        <Moment fromNow>{comment.created_at}</Moment>
         <h3>Votes: {comment.votes + optimisticVotes}</h3>
         <p>{comment.body}</p>
         {deleteButton}

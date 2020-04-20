@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleVoter from './ArticleVoter';
+import Moment from 'react-moment';
 
 class ArticleHead extends React.Component {
   state = {
@@ -16,7 +17,7 @@ class ArticleHead extends React.Component {
         <h3>{article.author}</h3>
         <p>
           {article.votes + optimisticVotes} votes - created:
-          {article.created_at} - {article.comment_count} comments
+          <Moment fromNow>{article.created_at}</Moment>
         </p>
         <ArticleVoter
           article_id={article.article_id}
