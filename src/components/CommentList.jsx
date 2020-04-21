@@ -28,12 +28,12 @@ class CommentList extends React.Component {
     if (isLoading) return <Loader />;
     return (
       <div className="CommentList">
+        <h2>Comments:</h2>
         <CommentAdder
           article_id={article_id}
           username={username}
           addComment={this.addComment}
         />
-        <h2>Comments:</h2>
         <ul>
           {comments.map((comment) => {
             return (
