@@ -44,7 +44,6 @@ export const commentVote = (comment_id, inc_votes) => {
 };
 
 export const vote = (type, id, inc_votes) => {
-  console.log('voting');
   return axios
     .patch(`${baseURL}/${type}/${id}`, { inc_votes })
     .then(({ data }) => {
