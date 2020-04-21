@@ -54,13 +54,13 @@ class ArticleVoter extends React.Component {
 
   handleVote = (inc_vote) => {
     const { voteCount } = this.state;
-    const { article_id, type } = this.props;
+    const { id, type } = this.props;
 
     if (voteCount >= -1 && voteCount <= 1) {
       this.setState((currentState) => {
         return (currentState.voteCount += inc_vote);
       });
-      api.vote(type, article_id, inc_vote);
+      api.vote(type, id, inc_vote);
       this.props.displayVote(inc_vote);
     }
   };

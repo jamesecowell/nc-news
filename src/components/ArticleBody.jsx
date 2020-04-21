@@ -49,7 +49,8 @@ class ArticleBody extends React.Component {
         <Voter
           displayVote={this.displayVote}
           votes={article.votes}
-          type="article"
+          type="articles"
+          id={article.article_id}
         />
         <p>{article.body}</p>
         <CommentList article_id={article_id} username={username} />

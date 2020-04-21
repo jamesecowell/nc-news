@@ -33,7 +33,7 @@ class CommentBody extends React.Component {
         {deleteButton}
         <Voter
           id={comment.comment_id}
-          type="comment"
+          type="comments"
           displayVote={this.displayVote}
         />
       </div>
