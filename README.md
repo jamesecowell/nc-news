@@ -1,5 +1,15 @@
 # NC NEWS
 
+NC-News is a Reddit-like news app, in which you can read articles, leave comments and vote on both articles and comments.
+
+On the homepage, you are able to see a list of articles, which you can sort by the number of votes on that article, how many comments it has received, and the date it was published. You can also choose between topics to see the articles that pertain to that topic.
+
+Each article also has a comments section, where you can leave your own comment and vote on other comments in the list.
+
+The app was built using Node.js/React, and uses a back-end API that was built using Express (see below for the link to this API, as will as its repository).
+
+## Installation
+
 To install, simply clone the repository using the link above. Then, you can `cd` into the `nc-news` folder and use the following scripts to run the project locally:
 
 ## Available Scripts
