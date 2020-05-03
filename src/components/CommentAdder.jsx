@@ -19,7 +19,7 @@ const Button = styled.button`
     `}
 `;
 
-const Input = styled.input`
+const Input = styled.input({required = true})`
   width: 80%;
   font-size: 14px;
   padding: 6px 8px;
